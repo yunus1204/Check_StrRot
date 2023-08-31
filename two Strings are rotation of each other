@@ -1,0 +1,51 @@
+
+
+// this the easy method to solve this problem 
+
+//input : str1="abc" str2="bca"
+//output : yes 
+
+//input : str1="abc" str2="xya"
+//output : no
+
+// and , here is the code ... 
+
+// the concept is 
+
+//step 1 : we concatinate the str1 with str1 itself 
+
+//step 2 : to look wheathe a str2 is the substring of str1 
+
+//if it is a sub string then it is true , it is rotation of each other
+//else it is not a substring it is false , it is not a rotation of each other
+
+#include <stdio.h>
+#include<string.h>
+
+int subStr(char str1[],char str2[]);
+
+int main()
+{
+    char str1[100],str2[100];
+    scanf("%s %s",str1,str2);
+   char str3[100];
+   strcat(str1,str1);
+   strcpy(str3,str1);
+    int value=subStr(str3,str2);
+    if(value==1)
+    printf("Yes");
+    else printf("No");
+    return 0;
+}
+
+int subStr(char str1[],char str2[]){
+    int i,j,k;
+    for(i=0;str1[i];i++){
+        for(k=i,j=0;str2[j] && str1[k]==str2[j];k++,j++);
+        if(str2[j]=='\0'){
+            return 1;
+        }
+    }
+}
+
+//do this to go Higher (simplely quotes)..
